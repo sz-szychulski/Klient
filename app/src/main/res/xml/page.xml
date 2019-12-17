@@ -13,7 +13,7 @@
     <Row>
         <Key android:codes="4" android:keyLabel="Save" android:keyEdgeFlags="left"/>
         <Key android:codes="5" android:keyLabel="Browser" />
-        <Key android:codes="6" android:keyLabel="Call" android:keyEdgeFlags="right"/>
+        <Key android:codes="6" android:keyLabel="Bt ON/OFF" android:keyEdgeFlags="right"/>
     </Row>
 
 </Keyboard>

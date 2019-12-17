@@ -1,5 +1,6 @@
 package com.example.bluetoothclient;
 
+import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
@@ -42,7 +43,7 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
     @Override
     public void onKey(int primaryCode, int[] keyCodes) {
         InputConnection inputConnection = getCurrentInputConnection();
-        CharSequence currentText ;
+        CharSequence currentText;
         CharSequence beforCursorText;
         CharSequence afterCursorText;
 
@@ -98,8 +99,18 @@ public class MyInputMethodService extends InputMethodService implements Keyboard
                     startActivity(BROWSER_INTENT);
                     break;
                 case 6:
-                    final Intent CALL_INTENT = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:123456789"));
-                    startActivity(CALL_INTENT);
+                    BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
+                    if (adapter.isEnabled()) {
+                        adapter.disable();
+                        Toast bluetoothDisable = Toast.makeText(this, "Bluetooth disabled", Toast.LENGTH_SHORT);
+                        bluetoothDisable.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 800);
+                        bluetoothDisable.show();
+                    } else {
+                        adapter.enable();
+                        Toast bluetoothEnable = Toast.makeText(this, "Bluetooth enabled", Toast.LENGTH_SHORT);
+                        bluetoothEnable.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 800);
+                        bluetoothEnable.show();
+                    }
                     break;
             }
         }
