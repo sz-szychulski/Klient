@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<String> chatMessages;
     private BluetoothAdapter bluetoothAdapter;
 
+    private static View btnSender;
+
     public static final int MESSAGE_STATE_CHANGE = 1;
     public static final int MESSAGE_READ = 2;
     public static final int MESSAGE_WRITE = 3;
@@ -83,11 +85,9 @@ public class MainActivity extends AppCompatActivity {
                     switch (msg.arg1) {
                         case ChatController.STATE_CONNECTED:
                             setStatus("Connected to: " + connectingDevice.getName());
-                            btnConnect.setEnabled(false);
                             break;
                         case ChatController.STATE_CONNECTING:
                             setStatus("Connecting...");
-                            btnConnect.setEnabled(false);
                             break;
                         case ChatController.STATE_LISTEN:
                         case ChatController.STATE_NONE:
@@ -211,6 +211,7 @@ public class MainActivity extends AppCompatActivity {
         listView = findViewById(R.id.list);
         inputLayout = findViewById(R.id.input_layout);
         View btnSend = findViewById(R.id.btn_send);
+        btnSender = findViewById(R.id.btn_send);
 
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -295,4 +296,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     };
+
+    public static void clickSend() {
+        btnSender.performClick();
+    }
+
 }

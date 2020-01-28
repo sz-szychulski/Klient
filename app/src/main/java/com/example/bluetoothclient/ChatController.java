@@ -15,15 +15,16 @@ import java.util.UUID;
 
 public class ChatController {
     private static final String APP_NAME = "Bluetooth_keyboard";
-    private static final UUID MY_UUID = UUID.fromString("8ce255c0-200a-11e0-ac64-0800200c9a66");
+    private static final UUID MY_UUID = UUID.fromString("6824b8cf-89ea-474a-91f6-bf3076e846ec");
 
     private final BluetoothAdapter bluetoothAdapter;
     private final Handler handler;
+
     private AcceptThread acceptThread;
     private ConnectThread connectThread;
     private ReadWriteThread connectedThread;
-    private int state;
 
+    private int state;
     static final int STATE_NONE = 0;
     static final int STATE_LISTEN = 1;
     static final int STATE_CONNECTING = 2;

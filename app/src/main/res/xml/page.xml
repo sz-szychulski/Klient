@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
-    android:keyWidth="33%p"
+    android:keyWidth="50%p"
     android:horizontalGap="5dp"
     android:verticalGap="5dp"
-    android:keyHeight="80dp">
+    android:keyHeight="60dp">
 
     <Row>
-        <Key android:codes="1" android:keyLabel="Code 1" android:keyEdgeFlags="left"/>
-        <Key android:codes="2" android:keyLabel="Code 2"/>
-        <Key android:codes="3" android:keyLabel="Camera" android:keyEdgeFlags="right"/>
+        <Key android:codes="1" android:keyLabel="Hello" android:keyEdgeFlags="left"/>
+        <Key android:codes="2" android:keyIcon="@android:drawable/ic_input_delete"  android:keyEdgeFlags="right" />
     </Row>
     <Row>
-        <Key android:codes="4" android:keyLabel="Save" android:keyEdgeFlags="left"/>
-        <Key android:codes="5" android:keyLabel="Browser" />
-        <Key android:codes="6" android:keyLabel="Bt ON/OFF" android:keyEdgeFlags="right"/>
+        <Key android:codes="3" android:keyLabel="Code 1" android:keyEdgeFlags="left"/>
+        <Key android:codes="4" android:keyLabel="Code 2" android:keyEdgeFlags="right"/>
     </Row>
+    <Row>
+        <Key android:codes="5" android:keyIcon="@android:drawable/ic_menu_camera" android:keyEdgeFlags="left"/>
+        <Key android:codes="6" android:keyIcon="@android:drawable/ic_menu_rotate" android:keyEdgeFlags="right"/>
+    </Row>
+
 
 </Keyboard>
